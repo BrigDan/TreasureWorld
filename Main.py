@@ -7,7 +7,7 @@ yLocation = 0
 
 def load_grid():
     Grid = []
-    with open("presetWorld.txt", "r") as file:      # Opens file as file
+    with open("scratch_1.txt", "r") as file:      # Opens file as file
         Data_from_txt_file = file.readlines()# Read the lines and store it.
     for lines in Data_from_txt_file:         # for every line in the file
         lines = lines.strip("\n")            # Discard \n from the lines
@@ -66,15 +66,23 @@ if random_or_not == 1:
         if movement == "w":
             world[xLocation][yLocation]="*"
             xLocation -= 1
+            if xLocation < 0:
+                xLocation +=1
         elif movement == "s":
             world[xLocation][yLocation] = "*"
             xLocation += 1
+            if xLocation >= 10:
+                xLocation -=1
         elif movement == "d":
             world[xLocation][yLocation] = "*"
             yLocation += 1
+            if yLocation >= 10:
+                yLocation -=1
         elif movement == "a":
             world[xLocation][yLocation] = "*"
             yLocation -= 1
+            if yLocation < 0:
+                yLocation +=1
         else:
             print("Wrong input! Try again")
         world= PlayerLocation(world,xLocation,yLocation)
