@@ -64,13 +64,12 @@ def PlayerLocation(Grid,xlocation,ylocation):
 
 
 
-while random_or_not != 1 or 2:
-    try:
-        random_or_not = int(input("Load grid from txt file (Enter 1)\n"
-                                  "and a randomly generated grid (enter 2)\n"
-                                  "> "))
-    except:
-        print("Wrong input. Please enter again.\n")
+try:
+    random_or_not = int(input("Load grid from txt file (Enter 1)\n"
+                        "and a randomly generated grid (enter 2)\n"
+                        "> "))
+except:
+    print("Wrong input. Please enter again.\n")
 
 
 
@@ -121,7 +120,7 @@ while lives > 0:
     gold,lives,turnsOfOmnisense=event(world,xLocation,yLocation,gold,lives,turnsOfOmnisense)
     world= PlayerLocation(world,xLocation,yLocation)
     if turnsOfOmnisense > 0:
-        Censor = True
+        Censor = False
         turnsOfOmnisense-=1
         print("good")
     print()
