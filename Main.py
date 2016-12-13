@@ -25,10 +25,13 @@ def load_grid():
 def event(world,x,y,gold,lives,censor):
     if world[x][y] == "G":
         gold += 1
+        print("You found some Gold.")
     elif world[x][y] == "S":
         lives -=1
+        print("You found a Shark")
     elif world[x][y] == "U":
         censor += 3
+        print("You found some Uranium")
     return gold,lives,censor
 
 
