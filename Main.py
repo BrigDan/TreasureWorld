@@ -94,35 +94,35 @@ while lives > 0:
     if movement == "w":
         world[xLocation][yLocation]="*"
         xLocation -= 1
-    if xLocation < 0:
-        xLocation +=1
+        if xLocation < 0:
+            xLocation +=1
     elif movement == "s":
         world[xLocation][yLocation] = "*"
         xLocation += 1
-    if xLocation >= 10:
-        xLocation -=1
+        if xLocation >= 10:
+            xLocation -=1
     elif movement == "d":
         world[xLocation][yLocation] = "*"
         yLocation += 1
-    if yLocation >= 10:
-        yLocation -=1
+        if yLocation >= 10:
+            yLocation -=1
     elif movement == "a":
         world[xLocation][yLocation] = "*"
         yLocation -= 1
-    if yLocation < 0:
-        yLocation +=1
+        if yLocation < 0:
+            yLocation +=1
     elif movement == "stats()":
             print("Gold:",gold,"\nLives:",lives,"\nTurns of Omnisense left:",turnsOfOmnisense)
     elif movement == "debug()":
             turnsOfOmnisense+=3
     else:
         print("Wrong input! Try again")
+
     gold,lives,turnsOfOmnisense=event(world,xLocation,yLocation,gold,lives,turnsOfOmnisense)
     world= PlayerLocation(world,xLocation,yLocation)
     if turnsOfOmnisense > 0:
         Censor = False
         turnsOfOmnisense-=1
-        print("good")
     print()
     reveal_grid(world, Censor)
     print()
